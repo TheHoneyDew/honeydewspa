@@ -4,6 +4,8 @@
   "description": "a single page app for the honeydew project",
   "main": "index.js",
   "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +18,22 @@
   "bugs": {
     "url": "https://github.com/TheHoneyDew/honeydewspa/issues"
   },
-  "homepage": "https://github.com/TheHoneyDew/honeydewspa#readme"
+  "homepage": "https://github.com/TheHoneyDew/honeydewspa#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "awesome-typescript-loader": "^5.2.1",
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.2.2",
+    "source-map-loader": "^3.0.0",
+    "typescript": "^4.4.2",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.1.1"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
 }
