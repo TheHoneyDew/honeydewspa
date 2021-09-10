@@ -1,9 +1,12 @@
 import * as React from "react";
-import Button from 'react-bootstrap/Button';
+import Navigation from './navigation'
 
 export const App = () => (
   <div>
-    <h1>Welcome to Honeydew <Button>Sign in</Button> </h1>
-    [react router Dom] https://reactrouter.com/web/guides/quick-start
+    <Navigation />  
+    <div>
+      <hr/>
+      [footer]
+    </div>
   </div>
 );
