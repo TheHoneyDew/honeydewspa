@@ -1,11 +1,51 @@
 import * as React from "react";
-import Navigation from './navigation'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+//import Navigation from './navigation'
+import NavigationBar from './navigationBar'
+
+import {About} from "../page/about"
+import { FizzBuzz } from "../page/fizzBuzz"
+import { Login } from "../page/login"
+import { Honeydew } from "../page/honeydew"
+
+const pageNotFound = () => (
+  <div>
+    404 Page not found. return <Link to="/">home</Link>
+  </div>
+)
 
 export const App = () => (
   <div>
-    <Navigation />  
+    <Router>
+      <div id="router-container">
+        {/* <Navigation/> */}
+        <NavigationBar userName=""/>
+        <hr/>
+        <Switch>
+          <Route path="/login">
+            <Login/>
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/fizzbuzz">
+            <FizzBuzz />
+          </Route>
+          <Route exact={true} path="/">
+            <Honeydew />
+          </Route>
+          <Route component={pageNotFound}/>
+        </Switch>
+      </div>
+    </Router>
+    <hr/>
     <div>
-      <hr/>
       [footer]
     </div>
   </div>
