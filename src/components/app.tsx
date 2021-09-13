@@ -6,7 +6,6 @@ import {
   Link
 } from "react-router-dom";
 
-//import Navigation from './navigation'
 import NavigationBar from './navigationBar'
 
 import {About} from "../page/about"
@@ -24,7 +23,6 @@ export const App = () => (
   <div>
     <Router>
       <div id="router-container">
-        {/* <Navigation/> */}
         <NavigationBar userName=""/>
         <hr/>
         <Switch>
