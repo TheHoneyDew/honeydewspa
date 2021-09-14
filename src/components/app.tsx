@@ -12,6 +12,8 @@ import {About} from "../page/about"
 import { FizzBuzz } from "../page/fizzBuzz"
 import { Login } from "../page/login"
 import { Honeydew } from "../page/honeydew"
+import { Dashboard } from "../page/dashboard"
+import { Configuration } from "../page/configuration"
 
 const pageNotFound = () => (
   <div>
