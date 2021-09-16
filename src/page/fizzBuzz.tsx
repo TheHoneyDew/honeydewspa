@@ -1,14 +1,18 @@
 import * as React from "react";
 import { Button } from "react-bootstrap"
 
-import {iFizzBuzzApi, FizzBuzzClientSideApi } from "../api/fizzbuzzapi"
+import { iFizzBuzzApi } from "../api/interfaces/iFizzbuzz";
+import { FizzBuzzLocalApi } from "../api/Entities/fizzBuzzLocalApi";
+import { FizzBuzzHttpApi } from "../api/Entities/fizzBuzzHttpApi";
 
 export const FizzBuzz = () => {
     const [fizzBuzzInput, setFizzBuzzInput] = React.useState("0");
     const [fizzBuzzResult, setFizzBuzzResult] = React.useState("");
     const numericRegex = /^[0-9]*$/
 
-    const fizzBuzzClient: iFizzBuzzApi = new FizzBuzzClientSideApi();
+    //const fizzBuzzClient: iFizzBuzzApi = new FizzBuzzLocalApi();
+    
+    const fizzBuzzClient: iFizzBuzzApi = new FizzBuzzHttpApi();
 
     async function testFizzBuzz(input:string): Promise<string> {
         const numericInput: number = parseInt(input);      

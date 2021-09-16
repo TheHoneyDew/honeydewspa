@@ -1,10 +1,8 @@
 
+import { iFizzBuzzApi } from "../interfaces/iFizzbuzz"
 
-export interface iFizzBuzzApi{
-    testFizzBuzz(numericInput:number):Promise<string>;
-}
 
-export class FizzBuzzClientSideApi implements iFizzBuzzApi{
+export class FizzBuzzLocalApi implements iFizzBuzzApi{
     constructor(){
 
     }
