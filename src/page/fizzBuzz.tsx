@@ -1,23 +1,19 @@
 import * as React from "react";
 import { Button } from "react-bootstrap"
 
+import {iFizzBuzzApi, FizzBuzzClientSideApi } from "../api/fizzbuzzapi"
+
 export const FizzBuzz = () => {
     const [fizzBuzzInput, setFizzBuzzInput] = React.useState("0");
     const [fizzBuzzResult, setFizzBuzzResult] = React.useState("");
     const numericRegex = /^[0-9]*$/
 
-    function testFizzBuzz(input:string):string {
-        const numericInput: number = parseInt(input);
-        let response:string = ''
-        if(numericInput % 3 === 0) {
-            response += 'fizz';
-        }
+    const fizzBuzzClient: iFizzBuzzApi = new FizzBuzzClientSideApi();
 
-        if(numericInput % 5 === 0){
-            response += 'buzz';
-        }
+    async function testFizzBuzz(input:string): Promise<string> {
+        const numericInput: number = parseInt(input);      
 
-        return response;
+        return await fizzBuzzClient.testFizzBuzz(numericInput);
     }
 
     return(
@@ -32,7 +28,7 @@ export const FizzBuzz = () => {
                         event.preventDefault();
                     }
                 } }/>
-                <Button onClick={() => setFizzBuzzResult(testFizzBuzz(fizzBuzzInput))}>Submit</Button>
+                <Button onClick={async () => setFizzBuzzResult(await testFizzBuzz(fizzBuzzInput))}>Submit</Button>
             </div>
             <div>
                 Result: {fizzBuzzResult}
