@@ -2,12 +2,17 @@
     "compilerOptions": {
       "jsx": "react",
       "module": "commonjs",
+      "moduleResolution": "node",
       "noImplicitAny": true,
       "outDir": "./build/",
       "preserveConstEnums": true,
       "removeComments": true,
       "sourceMap": true,
-      "target": "es5"
+      "target": "es5",
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "lib": ["es6", "dom"],
+      "types": ["reflect-metadata"],
     },
     "include": [
       "src/components/index.tsx"

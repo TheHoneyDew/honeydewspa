@@ -1,7 +1,7 @@
-const TAG = {
+const TAGS = {
     MOCK: "MOCK",
     LOCALCLIENT: "LOCALCLIENT",
     HTTPCLIENT: "HTTPCLIENT"    
 }
 
-export default TAG;
+export default TAGS;

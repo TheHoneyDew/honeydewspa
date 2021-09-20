@@ -1,6 +1,6 @@
-const SERVICE_IDENTIFIER = {
+const TYPES = {
     FIZZBUZZAPI: Symbol.for("FizzBuzzApi")
     //TODO: record other api dependencies here
 };
 
-export default SERVICE_IDENTIFIER;
+export default TYPES;

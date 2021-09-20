@@ -1,7 +1,8 @@
 
 import { iFizzBuzzApi } from "../interfaces/iFizzbuzz"
+import { injectable } from "inversify";
 
-
+@injectable()
 export class FizzBuzzLocalApi implements iFizzBuzzApi{
     constructor(){
 

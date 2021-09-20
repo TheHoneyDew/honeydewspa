@@ -2,20 +2,20 @@ import * as React from "react";
 import { Button } from "react-bootstrap"
 
 import { iFizzBuzzApi } from "../api/interfaces/iFizzbuzz";
-import { FizzBuzzLocalApi } from "../api/Entities/fizzBuzzLocalApi";
-import { FizzBuzzHttpApi } from "../api/Entities/fizzBuzzHttpApi";
+
+import container from "../api/iocConfig/ioc_Container";
+import TAGS from "../api/constants/tags";
+import TYPES from "../api/constants/types"
 
 export const FizzBuzz = () => {
     const [fizzBuzzInput, setFizzBuzzInput] = React.useState("0");
     const [fizzBuzzResult, setFizzBuzzResult] = React.useState("");
     const numericRegex = /^[0-9]*$/
 
-    //const fizzBuzzClient: iFizzBuzzApi = new FizzBuzzLocalApi();
-    
-    const fizzBuzzClient: iFizzBuzzApi = new FizzBuzzHttpApi();
 
     async function testFizzBuzz(input:string): Promise<string> {
-        const numericInput: number = parseInt(input);      
+        const numericInput: number = parseInt(input);  
+        const fizzBuzzClient: iFizzBuzzApi = container.getTagged<iFizzBuzzApi>(TYPES.FIZZBUZZAPI, TYPES.FIZZBUZZAPI, TAGS.LOCALCLIENT);    
 
         return await fizzBuzzClient.testFizzBuzz(numericInput);
     }

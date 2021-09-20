@@ -1,6 +1,7 @@
 import { iFizzBuzzApi } from "../interfaces/iFizzbuzz"
+import { injectable } from "inversify";
 
-
+@injectable()
 export class FizzBuzzHttpApi implements iFizzBuzzApi{
     constructor(){
         //initalize an http client
