@@ -23,10 +23,6 @@ const NavigationBar = (props: NavigationBarProps) =>{
                 <Navbar.Toggle/>
                 <Navbar.Collapse role="navigation" id="Honeydew-navigation-bar">
                     <Nav className="me-auto">
-                        {/* <NavLink exact={true} to="/">home</NavLink>
-                        <NavLink to="/about">About</NavLink>
-                        <NavLink to="/login">Sign In</NavLink>                        
-                        <NavLink to="/fizzBuzz">FizzBuzz</NavLink> */}
                         <Nav.Link href="/" >Home</Nav.Link>
                         <Nav.Link href="/about" >About</Nav.Link>
                         <Nav.Link href="/login" >Sign in</Nav.Link>
