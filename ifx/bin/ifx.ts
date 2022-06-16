@@ -1,9 +1,9 @@
 #!/usr/bin/env node
+import { App } from 'aws-cdk-lib';
 import 'source-map-support/register';
-import * as cdk from '@aws-cdk/core';
 import { AppStack } from '../lib/app-stack';
 
-const app = new cdk.App();
+const app = new App();
 
 new AppStack(app, 'HoneydewStack', {
   /* If you don't specify 'env', this stack will be environment-agnostic.

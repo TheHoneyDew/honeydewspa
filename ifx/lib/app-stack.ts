@@ -1,29 +1,29 @@
-import * as cdk from '@aws-cdk/core';
-import * as s3 from '@aws-cdk/aws-s3';
-import * as s3Deploy from '@aws-cdk/aws-s3-deployment';
-import { CfnOutput } from '@aws-cdk/core';
+import { RemovalPolicy, Stack, StackProps, aws_s3, CfnOutput } from 'aws-cdk-lib';
+import { BucketDeployment, Source } from 'aws-cdk-lib/aws-s3-deployment';
+import { Construct } from 'constructs';
 
-export class AppStack extends cdk.Stack {
-  constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
+
+export class AppStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
     // The code that defines your stack goes here
 
     //create an s3 bucket
-    const honeydewSiteBucket = new s3.Bucket(this, "honeydewSiteBucket", {
+    const honeydewSiteBucket = new aws_s3.Bucket(this, "honeydewSiteBucket", {
       publicReadAccess:true,
-      removalPolicy: cdk.RemovalPolicy.DESTROY,
+      removalPolicy: RemovalPolicy.DESTROY,
       websiteIndexDocument: "index.html",
       autoDeleteObjects: true
     });
 
     // deploy code to the bucket.
 
-    const sourceCode = new s3Deploy.BucketDeployment(
+    const sourceCode = new BucketDeployment(
       this,
       "honeydewSiteDeployment",
       {
-        sources: [s3Deploy.Source.asset("../build")],
+        sources: [Source.asset("../build")],
         destinationBucket: honeydewSiteBucket
       }
     );
